@@ -1,0 +1,378 @@
+/* Galactic Background & General Reset */
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: 
+    radial-gradient(circle at 50% 50%, #0a0a2e 0%, #000010 70%),
+    linear-gradient(45deg, #000033, #00001a);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stars Animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  z-index: -3;
+  animation: stars 50s linear infinite;
+}
+
+@keyframes stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
+}
+
+/* Shooting Stars */
+.shooting-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.shooting-stars .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: shootingStar 5s linear infinite;
+}
+
+@keyframes shootingStar {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) translateX(100vw); opacity: 0; }
+}
+
+/* Abstract Gradient Small Blobs */
+.abstract-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.abstract-blobs .blob {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, 
+    rgba(255, 20, 147, 0.4), 
+    rgba(138, 43, 226, 0.4), 
+    rgba(0, 255, 255, 0.4));
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: floatBlobs 6s infinite ease-in-out alternate;
+}
+
+.abstract-blobs .blob:nth-child(1) {
+  left: 20%;
+  top: 30%;
+  animation-delay: 0s;
+}
+
+.abstract-blobs .blob:nth-child(2) {
+  left: 70%;
+  top: 60%;
+  animation-delay: 2s;
+}
+
+.abstract-blobs .blob:nth-child(3) {
+  left: 50%;
+  top: 80%;
+  animation-delay: 4s;
+}
+
+@keyframes floatBlobs {
+  0% { transform: translateY(-20px) scale(1); }
+  100% { transform: translateY(20px) scale(1.1); }
+}
+
+/* Gradient Blobs */
+.plasma-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.plasma-blobs .blob {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, 
+    rgba(255, 20, 147, 0.8), 
+    rgba(138, 43, 226, 0.8), 
+    rgba(0, 255, 255, 0.8));
+  border-radius: 50%;
+  filter: blur(20px);
+  box-shadow: 
+    0 0 40px rgba(255, 20, 147, 0.6), 
+    0 0 50px rgba(138, 43, 226, 0.6), 
+    0 0 60px rgba(0, 255, 255, 0.6);
+  animation: floatBlobs 4s infinite ease-in-out alternate;
+}
+
+.plasma-blobs .blob:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  left: 10%;
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.plasma-blobs .blob:nth-child(2) {
+  width: 170px;
+  height: 170px;
+  left: 70%;
+  top: 50%;
+  animation-delay: 2s;
+}
+
+.plasma-blobs .blob:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  top: 80%;
+  animation-delay: 4s;
+}
+
+.plasma-blobs .blob:nth-child(4) {
+  width: 180px;
+  height: 180px;
+  left: 30%;
+  top: 60%;
+  animation-delay: 1s;
+}
+
+.plasma-blobs .blob:nth-child(5) {
+  width: 220px;
+  height: 220px;
+  left: 80%;
+  top: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes floatBlobs {
+  0% { transform: translateY(-30px) scale(1); }
+  100% { transform: translateY(30px) scale(1.1); }
+}
+
+/* Spinning 3D Neon Cubes */
+.scene {
+  position: fixed;
+  perspective: 800px;
+  z-index: -1;
+}
+
+/* Top-Right Cube */
+.scene-top-right {
+  width: 120px; /* 2-3 cm */
+  height: 120px; /* 2-3 cm */
+  top: 10%; /* Positioned at the top */
+  right: 10%; /* Positioned at the rightmost corner */
+}
+
+/* Bottom-Left Cube 1 */
+.scene-bottom-left-1 {
+  width: 150px; /* 2-3 cm */
+  height: 150px; /* 2-3 cm */
+  bottom: 10%; /* Positioned slightly above the bottom */
+  left: 5%; /* Positioned at the leftmost corner */
+}
+
+/* Bottom-Left Cube 2 */
+.scene-bottom-left-2 {
+  width: 120px; /* 2-3 cm */
+  height: 120px; /* 2-3 cm */
+  bottom: 45%; /* Positioned slightly above the first cube */
+  left: 27%; /* Moved further to the right */
+}
+
+/* Cube Between Generate Code and Copy Code */
+.scene-middle-right {
+  width: 150px; /* 2-3 cm */
+  height: 150px; /* 2-3 cm */
+  top: 70%; /* Positioned in the middle vertically */
+  right: 23%; /* Positioned between the buttons */
+}
+
+/* Half Cube on Rightmost Corner */
+.scene-rightmost {
+  width: 120px; /* 2-3 cm */
+  height: 120px; /* 2-3 cm */
+  top: 10%; /* Positioned at the top */
+  right: 10%; /* Positioned at the rightmost corner */
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 10s linear infinite;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(255, 20, 147, 0.4), 
+    rgba(138, 43, 226, 0.4), 
+    rgba(0, 255, 255, 0.4));
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 15px rgba(255, 20, 147, 0.8), 
+    0 0 20px rgba(138, 43, 226, 0.8), 
+    0 0 25px rgba(0, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front  { transform: translateZ(40px); } /* Adjusted for 2-3 cm cubes */
+.back   { transform: rotateY(180deg) translateZ(40px); } /* Adjusted for 2-3 cm cubes */
+.left   { transform: rotateY(-90deg) translateZ(40px); } /* Adjusted for 2-3 cm cubes */
+.right  { transform: rotateY(90deg) translateZ(40px); } /* Adjusted for 2-3 cm cubes */
+.top    { transform: rotateX(90deg) translateZ(40px); } /* Adjusted for 2-3 cm cubes */
+.bottom { transform: rotateX(-90deg) translateZ(40px); } /* Adjusted for 2-3 cm cubes */
+
+@keyframes rotate {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Glassmorphism Input Section */
+.glass {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.2),
+    0 0 40px rgba(138, 43, 226, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 0 30px rgba(0, 255, 255, 0.4),
+    0 0 60px rgba(138, 43, 226, 0.2);
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #00FFFF;
+  font-size: 1.1em;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border: 1px solid #00FFFF;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(138, 43, 226, 0.4);
+  outline: none;
+}
+
+/* Neon Button */
+.neon-button {
+  background: linear-gradient(45deg, #FF1493, #8A2BE2, #00FFFF);
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  padding: 0.5rem 1rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(255, 20, 147, 0.6), 0 0 20px rgba(138, 43, 226, 0.6), 0 0 30px rgba(0, 255, 255, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.8), 0 0 40px rgba(138, 43, 226, 0.8), 0 0 60px rgba(0, 255, 255, 0.8); }
+  100% { box-shadow: 0 0 10px rgba(255, 20, 147, 0.6), 0 0 20px rgba(138, 43, 226, 0.6), 0 0 30px rgba(0, 255, 255, 0.6); }
+}
+
+/* Flip-Open Glazed Panel for Generated Code */
+.output-container {
+  position: relative;
+  perspective: 1500px; /* Creates 3D depth */
+}
+
+.flip-wrapper {
+  width: 100%;
+  transform-style: preserve-3d;
+  transform-origin: left; /* Ensures left-side flipping */
+  transition: transform 0.6s ease-in-out;
+}
+
+.output-panel {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  width: 100%;
+  backface-visibility: hidden; /* Hides the backside during flip */
+}
+
+/* Flip Effect: Add 'flip' class to .output-container */
+.output-container.flip .flip-wrapper {
+  transform: rotateY(-180deg);
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #00FFFF;
+  margin-top: auto;
+}
+
+.crafted-by {
+  font-size: 0.7em;
+  text-shadow: 0 0 8px #00FFFF;
+}

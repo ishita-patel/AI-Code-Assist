@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-dotenv
+sqlalchemy
+requests
+openai>=1.0.0
+chromadb
+psycopg2-binary
+pydantic-settings
